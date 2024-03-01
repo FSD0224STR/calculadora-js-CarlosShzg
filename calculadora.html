@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @font-face {
+    font-family: 'Calculator';
+    src:url('fonts/Calculator.ttf.woff') format('woff'),
+        url('fonts/Calculator.ttf.svg#Calculator') format('svg'),
+        url('fonts/Calculator.ttf.eot'),
+        url('fonts/Calculator.ttf.eot?#iefix') format('embedded-opentype'); 
+        font-weight: normal;
+        font-style: normal;
+    }
+    .calculadora {
+        align-items: center;
+        max-width: 250px;
+        margin: 50px auto;
+        padding: 5px;
+        border-radius: 10px;
+        background-color: #eee;
+        border: 3px solid #ddd;
+        box-sizing: border-box;
+        font-family: 'Poppins';
+        box-shadow: 0px 0px 6px #ccc;
+    }
+    .calculadora h1 {
+        font-size: 24px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        color: #e5203b;
+        text-align: center;
+    }
+    .calculadora .botones, 
+    .calculadora .pantalla {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 1.5%;
+        row-gap: 6px;
+        align-items: center;
+        flex-basis: 100%;
+    } 
+    .calculadora .pantalla {
+        margin-bottom: 10px;
+        text-align: right;
+        font-family: 'Calculator';
+    }
+    .calculadora .pantalla .datos-pantalla {
+        flex: 1;
+        align-self: center;
+        padding: 5px 10px;
+        color: #064b12;
+        background-color: #9dc9b0;
+        border-radius: 5px;
+        font-size: 30px;
+        font-weight: bold;
+        border: none;
+        box-shadow: inset 1px 1px 2px #666;
+    }
+    .calculadora .number {
+        flex-basis: 23.875%;
+        align-self: center;
+        padding: 10px;
+        color: #444;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 1px 2px #bbb;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+    }
+    .calculadora .number#equal {
+        color: #fff;
+        background-color: #e5203b;
+    }
+    .calculadora .number:hover {
+        background-color: #fafafa;
+    }
+    .calculadora .number#equal:hover {
+        background-color: #fe4861;
+    }
+    .calculadora .number:active {
+        background-color: #f6f6f6;        
+        box-shadow: 0px 0px 2px #ccc;
+    }
+    .calculadora .number#equal:active {
+        background-color: #1a826e;
+    }
+</style>
+<body>
+    <section>
+        <div class="calculadora">
+            <h1>JS Calculator</h1>
+            <div class="pantalla">
+                <div class="datos-pantalla">15420,25</div>
+            </div>
+            <div class="botones">
+                <button id="seven" class="number">7</button>
+                <button id="eight" class="number">8</button>
+                <button id="nine" class="number">9</button>
+                <button id="division" class="number">/</button>
+                <button id="four" class="number">4</button>
+                <button id="five" class="number">5</button>
+                <button id="six" class="number">6</button>
+                <button id="multiplication " class="number">x</button>
+                <button id="one" class="number">1</button>
+                <button id="two" class="number">2</button>
+                <button id="three" class="number">3</button>
+                <button id="subtraction" class="number">-</button>
+                <button id="delete" class="number">C</button>
+                <button id="zero" class="number">0</button>
+                <button id="equal" class="number">=</button>
+                <button id="add" class="number">+</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
