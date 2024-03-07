@@ -5,122 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link id="hojaDeEstilo" rel="stylesheet" href="./css/ui-calculator-styles.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <style>
     
-    @font-face {
-    font-family: 'Calculator';
-    src:url('fonts/Calculator.ttf.woff') format('woff'),
-        url('fonts/Calculator.ttf.svg#Calculator') format('svg'),
-        url('fonts/Calculator.ttf.eot'),
-        url('fonts/Calculator.ttf.eot?#iefix') format('embedded-opentype'); 
-        font-weight: normal;
-        font-style: normal;
-    }
-    body {
-        min-height: 100vh;
-        background-color: #023535;
-        display: grid;
-        place-items: center;
-        font-family: "Bebas Neue";
-    }
-    h1 {
-        font-size: 65px;
-        letter-spacing: 15px;
-        font-weight: 200;
-        margin: 0;
-        color: #034949;
-        text-align: center;
-        font-family: "Bebas Neue";
-    }
-    .calculadora {
-        align-items: stretch;
-        width: 275px;
-        margin: 25px auto;
-        padding: 22px 20px;
-        border-radius: 10px;
-        background-color: #015958;
-        box-sizing: border-box;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 12px;
-    }
-    .calculadora .datos-pantalla { 
-        font-family: 'Calculator';
-        margin-bottom: 10px;
-        text-align: right;       
-        grid-column: 1 / -1;
-        padding: 10px;
-        color: #fff;
-        background-color: #008F8C;
-        border-radius: 4px;
-        font-size: 36px;
-        letter-spacing: 2.5px;
-        border: none;
-    }
-    .calculadora .number {
-        padding: 14px 5px;
-        color: #fff;
-        background-color: #026867;
-        border-radius: 5px;
-        font-size: 16px;
-        font-weight: 400;
-        border: none;
-        font-family: 'Barlow';
-    }
-    .calculadora .number.symbol {
-        border-radius: 5px;
-        font-size: 18px;
-        font-weight: 600;
-    }
-    .calculadora .number:hover {
-        background-color: #008F8C;
-    }
-    .calculadora .number#equal {
-        background-color: #e5203b;
-        grid-row: span 2;
-    }
-    .calculadora .number#equal:hover {
-        background-color: #fe4861;
-    }
-    .calculadora .number:active,
-    .calculadora .number#equal:active {
-        background-color: #0FC2C0;     
-    }
-    .calculadora .number#zero {
-        grid-column: span 2;
-    }
+    
 </style>
 <body>
     <section>
-        <h1>JS Calculator</h1>
+        <h1 class="text-ui">JS Calculator</h1>
+        <h1 class="text-et66">BRAUN ET66 Calculator</h1>
+        <div class="btn-content">
+            <button onclick="cambiarEstilo('./css/ui-calculator-styles.css')">UI Calculator</button>
+            <button onclick="cambiarEstilo('./css/et66-calculator-styles.css')">BRAUN ET66 Calculator</button>
+        </div>
         <div class="calculadora">
-                <div class="datos-pantalla"></div>
-                <button id="c" class="number">C</button>
-                <button id="delete" class="number symbol">←</button>
-                <button id="division" class="number symbol">÷</button>
-                <button id="multiplication" class="number symbol">x</button>
-                <button id="seven" class="number">7</button>
-                <button id="eight" class="number">8</button>
-                <button id="nine" class="number">9</button>
-                <button id="add" class="number symbol">+</button>
-                <button id="four" class="number">4</button>
-                <button id="five" class="number">5</button>
-                <button id="six" class="number">6</button>
-                <button id="subtraction" class="number symbol">-</button>
-                <button id="one" class="number">1</button>
-                <button id="two" class="number">2</button>
-                <button id="three" class="number">3</button>
-                <button id="equal" class="number symbol">=</button>
-                <button id="zero" class="number">0</button>
-                <button id="dot" class="number symbol">.</button>
-            </div>
+            <h4 class="text-et66">BRAUN</h4>
+            <div class="datos-pantalla display" id="display"></div>
+            <button class="number symbol" onclick="clearDisplay()">C</button>
+            <button class="number symbol" onclick="deleteDigit()">←</button>
+            <button class="number symbol" onclick="appendSymbol('/')">÷</button>
+            <button class="number symbol" onclick="appendSymbol('*')">x</button>
+            <button class="number" onclick="appendNumber('7')">7</button>
+            <button class="number" onclick="appendNumber('8')">8</button>
+            <button class="number" onclick="appendNumber('9')">9</button>
+            <button class="number symbol" onclick="appendSymbol('+')">+</button>
+            <button class="number" onclick="appendNumber('4')">4</button>
+            <button class="number" onclick="appendNumber('5')">5</button>
+            <button class="number" onclick="appendNumber('6')">6</button>
+            <button class="number symbol" onclick="appendSymbol('-')">-</button>
+            <button class="number" onclick="appendNumber('1')">1</button>
+            <button class="number" onclick="appendNumber('2')">2</button>
+            <button class="number" onclick="appendNumber('3')">3</button>
+            <button class="number symbol equal" onclick="calculate()">=</button>
+            <button class="number zero" onclick="appendNumber('0')">0</button>
+            <button class="number symbol" onclick="appendSymbol('.')">.</button>
         </div>
     </section>
 
     <script src="./js/calculator.js"></script>
+    <script>
+        function cambiarEstilo(nuevaHoja) {
+            var hojaDeEstilo = document.getElementById('hojaDeEstilo');
+            hojaDeEstilo.setAttribute('href', nuevaHoja);
+        }
+    </script>
 </body>
 </html>
