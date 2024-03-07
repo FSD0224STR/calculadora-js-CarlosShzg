@@ -1,6 +1,7 @@
 
 
 let displayValue = '0';
+const maxLength = 11;
 
 function updateDisplay() {
     document.getElementById('display').innerText = displayValue;
@@ -9,7 +10,7 @@ function updateDisplay() {
 function appendNumber(number) {
     if (displayValue === '0' || displayValue === 'Error') {
         displayValue = number;
-    } else {
+    } else if (displayValue.length < maxLength) {
         displayValue += number;
     }
     updateDisplay();

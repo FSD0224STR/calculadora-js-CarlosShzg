@@ -8,14 +8,14 @@ src:url('/fonts/Calculator.ttf.woff') format('woff'),
     font-style: normal;
 }
 @font-face {
-    font-family: 'Braun Font';
-    src:url('/fonts/ChingoloPro.ttf.woff') format('woff'),
-        url('/fonts/ChingoloPro.ttf.svg#ChingoloPro') format('svg'),
-        url('/fonts/ChingoloPro.ttf.eot'),
-        url('/fonts/ChingoloPro.ttf.eot?#iefix') format('embedded-opentype'); 
-        font-weight: normal;
-        font-style: normal;
-    }
+font-family: 'Braun Font';
+src:url('/fonts/ChingoloPro.woff') format('woff'),
+    url('/fonts/ChingoloPro.svg#ChingoloPro') format('svg'),
+    url('/fonts/ChingoloPro.eot'),
+    url('/fonts/ChingoloPro.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
 body {
     min-height: 100vh;
     background-color: #333;
@@ -25,19 +25,40 @@ body {
 }
 h1 {
     font-size: 50px;
-    letter-spacing: 0px;
+    line-height: 40px;
     margin: 0;
     color: #aaa;
     text-align: center;
     font-family: 'Braun Font';
+    font-weight: normal;
+    letter-spacing: -6px;
+}
+h1 span {
+    font-size: 60px;
+}
+h2 {
+    font-family: 'Calculator';
+    font-weight: normal;
+    letter-spacing: 0px;
+    display: block;
+    font-size: 40px;
+    text-align: center;
+    color: #999;
+    margin-top: 0;
+    margin-bottom: 15px;
 }
 h4 {
-    font-size: 20px;
-    margin: 0 0 10px;
+    font-size: 22px;
+    line-height: 20px;
+    margin: 10px 0 0;
     color: #fff;
     text-align: left;
     font-family: 'Braun Font';
-
+    font-weight: normal;
+    letter-spacing: -2px;
+}
+h4 span{ 
+    font-size: 26px;
 }
 .text-ui {
     display: none;
@@ -48,29 +69,30 @@ h4 {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    column-gap: 20px;
+    column-gap: 10px;
     margin: 10px auto 20px;
 }
 .btn-content button {
-    background-color: #0FC2C0;
     padding: 4px 25px;
-    color: #015958;
     font-weight: 500;
     border-radius: 20px;
-    font-size: 20px;
-    border: none;
+    font-size: 20px;    
+    border: 3px solid #111;
     box-shadow: none;
     font-family: "Bebas Neue";
+    background-color: #111;
+    color: #fff;
+	box-shadow: inset -4px -5px 10px rgba(50,50,50,.3);
+	background-image: linear-gradient(-20deg, rgba(255,255,225,.1) 0%, transparent 50%)
 }
 .btn-content button:hover {
-    background-color: #fff;
-    color: #015958;
+    background-color: #222;
     cursor: pointer;
-    transform: scale(1.05);
 }
 .btn-content button:active {
-    background-color: #e5203b;
-    color: #fff;
+	box-shadow: inset -4px -5px 10px rgba(0,0,0,.2);
+    border: 1px solid #111;
+    background-color: #111;
 }
 .calculadora {
     align-items: stretch;
@@ -78,6 +100,7 @@ h4 {
     margin: 25px auto;
     padding: 30px 30px 50px;
     border-radius: 10px 10px 50px 50px;
+    box-shadow: inset 1px -1px 8px #555;
     border: 2px solid #222;
     background-color: #222;
     box-sizing: border-box;
@@ -85,7 +108,6 @@ h4 {
     grid-template-columns: repeat(4, 35px);
     gap: 10px;
     justify-content: center;
-    box-shadow: inset 1px -1px 8px #555;
 }
 .calculadora .datos-pantalla { 
     font-family: 'Calculator';
@@ -97,9 +119,10 @@ h4 {
     background-color: #c5c7b9;
     border-radius: 4px;
     font-size: 30px;
-    letter-spacing: 2.5px;
+    letter-spacing: 0px;
     border: 2px solid #333 ;
     box-shadow: inset 7px 7px 2px #111, inset -5px -5px 2px #333;
+    overflow: hidden;
 }
 .calculadora .number {
     min-height: 35px;
@@ -117,19 +140,21 @@ h4 {
     background-color: #41271a;
 }
 .calculadora .number:hover {
-    background-color: #008F8C;
+    cursor: pointer; 
+    background-color: #222;   
 }
 .calculadora .number.equal {
-    background-color: #e5203b;
+    background-color: #e3a64d;
+    border: 3px solid #281c09;
     grid-row: span 2;
 }
 .calculadora .number.equal:hover {
-    background-color: #fe4861;
+    background-color: #f3be70;
 }
 .calculadora .number:active,
 .calculadora .number.equal:active {
-    background-color: #0FC2C0;
-    box-shadow: 0 2px 0 #023535;     
+    border: 1px solid #111;
+    background-color: #000;     
 }
 .calculadora .number.zero {
     grid-column: span 2;
