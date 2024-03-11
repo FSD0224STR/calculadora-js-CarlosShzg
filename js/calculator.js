@@ -1,5 +1,3 @@
-
-
 let displayValue = '0';
 const maxLength = 11;
 
@@ -20,12 +18,13 @@ function appendSymbol(symbol) {
     if (displayValue !== 'Error') {
         const lastChar = displayValue.slice(-1);
         if (symbol === '.' && lastChar === '.') {
-            // Con esto evitamos agregar dos puntos decimales consecutivos
             return;
         }
         if (isOperator(lastChar) && symbol === '.') {
-            // con esto agregamos un cero antes del punto decimal si el último carácter es un operador
             displayValue += '0';
+        }
+        if (isOperator(lastChar) && isOperator(symbol)) {
+            displayValue = displayValue.slice(0, -1);
         }
         displayValue += symbol;
         updateDisplay();
